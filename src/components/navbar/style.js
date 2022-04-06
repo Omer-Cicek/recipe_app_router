@@ -8,6 +8,8 @@ const navbarStyling = {
     padding: '10px',
     transform: 'scale(1)',
     transition: 'transform .1s ease-in-out',
+    fontWeight: 500,
+
     '&:hover': {
       color: '#3993ad',
       transform: 'scale(1.1)',
