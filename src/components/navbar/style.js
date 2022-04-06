@@ -1,7 +1,10 @@
 const navbarStyling = {
   root: {
-    background: 'linear-gradient( #E0F1DD , #E0F1DD )',
+    '&.MuiPaper-root': {
+      backgroundColor: '#E0F1DD',
+    },
   },
+
   linkColor: {
     color: '#245867',
     textDecoration: 'none',

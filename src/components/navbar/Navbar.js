@@ -10,7 +10,7 @@ const Navbar = () => {
   const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className={classes.root}>
+      <AppBar position="fixed" className={classes.root}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to={'/'} className={classes.linkColor}>

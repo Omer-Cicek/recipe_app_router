@@ -11,8 +11,8 @@ const About = () => {
     <div className={classes.root}>
       <img src={coding} alt="" className={classes.img} />
       <h3>
-        About Fullstack Web Developer{' '}
-        <span className={classes.nameSpan}>Omer</span>
+        About Fullstack Web Developer
+        <span className={classes.nameSpan}> Omer Faruk</span>
       </h3>
       <div className={classes.about}>
         <h3>I'm Omer</h3>
@@ -22,8 +22,7 @@ const About = () => {
           libraries.
         </h3>
         <h3>
-          {' '}
-          <span className={classes.whiteText}>Send message</span>:{' '}
+          <span className={classes.whiteText}>Send message: </span>
           <a
             className={classes.link}
             href="https://www.linkedin.com/in/omercicek97/"

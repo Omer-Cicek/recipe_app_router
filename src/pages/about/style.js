@@ -1,13 +1,15 @@
 const aboutStyling = {
   root: {
-    background: 'linear-gradient( #00ADB5 , #00ADB5 )',
+    backgroundColor: '#00ADB5',
     minHeight: '100vh',
     textAlign: 'center',
+    marginTop: '55px',
   },
   nameSpan: {
     color: 'white',
     fontSize: '2rem',
     fontStyle: 'italic',
+    fontFamily: 'Dancing Script',
   },
   img: {
     width: '75%',
