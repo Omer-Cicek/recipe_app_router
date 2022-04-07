@@ -5,17 +5,23 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Login from './pages/login/Login';
 import Details from './pages/details/Details';
+import { useState } from 'react';
 
 function App() {
+  const [userLogin, setUserLogin] = useState(false);
   return (
     <div className="App">
       <Router>
-        <Navbar />
-        {/* <h1>Recipe App</h1> */}
+        <Navbar userLogin={userLogin} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            userLogin={userLogin}
+            setUserLogin={setUserLogin}
+            element={<Login />}
+          />
           <Route path="/details" element={<Details />} />
         </Routes>
       </Router>
