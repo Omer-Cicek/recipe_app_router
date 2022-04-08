@@ -8,74 +8,46 @@ import {
   Button,
   TextField,
 } from '@mui/material';
+import homeStyling from './style';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import RecipeCard from './RecipeCard';
 
-const useStyles = makeStyles({
-  root: {
-    minHeight: '100vh',
-    minWidth: '90vw',
-    marginTop: '60px',
-    backgroundColor: '#00ADB5',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  userInput: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    border: '2px #E0F1DD solid',
-    borderRadius: '10px',
-    padding: '30px',
-  },
-
-  input: {
-    width: '200px',
-    '& input': {
-      color: 'white',
-    },
-
-    '& label': {
-      color: 'white',
-    },
-
-    '& label.Mui-focused': {
-      color: '#fff',
-    },
-    '&.MuiTextField-root': {
-      color: '#E0F1DD',
-    },
-  },
-  button: {
-    width: '150px',
-    '&.MuiButton-contained': {
-      color: '#333',
-    },
-    '&.MuiButton-root': {
-      backgroundColor: '#E0F1DD',
-    },
-    '&.MuiButton-root:hover': {
-      backgroundColor: '#e3ffde',
-    },
-  },
-  dropdown: {
-    '&.MuiFormLabel-root': {
-      color: 'white',
-    },
-  },
-});
+const useStyles = makeStyles(homeStyling);
 
 const Home = () => {
   const classes = useStyles();
+  const [query, setQuery] = useState('');
+  const [meal, setMeal] = useState('');
+  const [dataFood, setDataFood] = useState([]);
+
+  const APP_KEY = '8e0de6073bcc7125b71b0c0d3fd7ce03';
+  const APP_ID = '2061853d';
+  const apiUrl = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`;
+
+  const fetchData = async () => {
+    const res = await axios(apiUrl);
+    setDataFood(res?.data?.hits);
+  };
+
+  useEffect(() => fetchData, []);
+
   return (
     <main className={classes.root}>
+      <h1>Food App</h1>
       <Box className={classes.userInput}>
         <TextField
           id="standard-basic"
-          label="Standard"
+          label="Search"
           variant="standard"
           className={classes.input}
+          onChange={(e) => setQuery(e.target.value)}
         />
-        <Button variant="contained" className={classes.button}>
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={fetchData}
+        >
           Search
         </Button>
         <FormControl>
@@ -84,23 +56,26 @@ const Home = () => {
             htmlFor="uncontrolled-native"
             className={classes.dropdown}
           >
-            Age
+            Meal
           </InputLabel>
           <NativeSelect
-            defaultValue={'Breakfast'}
+            defaultValue={'breakfast'}
             inputProps={{
               name: 'food',
               id: 'uncontrolled-native',
             }}
+            onChange={(e) => setMeal(e.target.value)}
           >
-            <option value={'Breakfast'}>Breakfast</option>
-            <option value={'Lunch'}>Lunch</option>
-            <option value={'Dinner'}>Dinner</option>
-            <option value={'Snack'}>Snack</option>
-            <option value={'Teatime'}>Teatime</option>
+            <option value={'breakfast'}>Breakfast</option>
+            <option value={'lunch'}>Lunch</option>
+            <option value={'dinner'}>Dinner</option>
+            <option value={'snack'}>Snack</option>
+            <option value={'teatime'}>Teatime</option>
           </NativeSelect>
         </FormControl>
       </Box>
+
+      <RecipeCard dataFood={dataFood} />
     </main>
   );
 };
