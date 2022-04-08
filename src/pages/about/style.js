@@ -3,7 +3,7 @@ const aboutStyling = {
     backgroundColor: '#00ADB5',
     minHeight: '100vh',
     textAlign: 'center',
-    marginTop: '55px',
+    marginTop: '60px',
   },
   nameSpan: {
     color: 'white',

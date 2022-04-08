@@ -8,6 +8,7 @@ const loginStyling = {
     background: '#00ADB5',
     color: 'red ',
     gap: '10px',
+    marginTop: '60px',
   },
   button: {
     '&.MuiButton-contained': {
@@ -35,7 +36,7 @@ const loginStyling = {
     '& label.Mui-focused': {
       color: '#fff',
     },
-    '& .MuiOutlinedInput-root': {
+    '& .MuiInput-root': {
       '& fieldset': {
         borderColor: 'white',
       },

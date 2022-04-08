@@ -6,15 +6,14 @@ import navbarStyling from './style';
 
 const useStyles = makeStyles(navbarStyling);
 
-const Navbar = ({ userLogin }) => {
+const Navbar = () => {
   const classes = useStyles();
   return (
-    // userLogin &&
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" className={classes.root}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to={'/'} className={classes.linkColor}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            <Link to={'/home'} className={classes.linkColor}>
               Recipe App
             </Link>
           </Typography>
@@ -29,7 +28,7 @@ const Navbar = ({ userLogin }) => {
           >
             GITHUB
           </a>
-          <Link to={'/login'} exact className={classes.linkColor}>
+          <Link to={'/'} className={classes.linkColor}>
             LOGOUT
           </Link>
         </Toolbar>

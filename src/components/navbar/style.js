@@ -3,6 +3,7 @@ const navbarStyling = {
     '&.MuiPaper-root': {
       backgroundColor: '#E0F1DD',
     },
+    display: 'block',
   },
 
   linkColor: {

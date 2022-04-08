@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const useStyles = makeStyles(loginStyling);
 
-const Login = ({ setUserLogin, userLogin }) => {
+const Login = () => {
   let navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +27,6 @@ const Login = ({ setUserLogin, userLogin }) => {
       navigate('/');
       toast.success('Successfully entered the website!');
     }
-    userLogin(true);
     setPassword('');
     setUsername('');
   };
@@ -63,7 +62,9 @@ const Login = ({ setUserLogin, userLogin }) => {
         <Button
           variant="contained"
           className={classes.button}
-          onClick={loginHandler}
+          onClick={() => {
+            loginHandler();
+          }}
         >
           Sign In
         </Button>
