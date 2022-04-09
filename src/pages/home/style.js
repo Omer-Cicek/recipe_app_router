@@ -53,5 +53,25 @@ const homeStyling = {
     },
   },
 };
+export const recipeCardStyling = {
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '90%',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    margin: '20px',
+  },
+  card: {
+    margin: '10px',
+    transition: 'transform 0.3s',
+
+    '&:hover': {
+      transform: 'scale(1.05)',
+      cursor: 'pointer',
+      transition: 'transform 0.4s',
+    },
+  },
+};
 
 export default homeStyling;

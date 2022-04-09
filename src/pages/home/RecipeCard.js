@@ -1,42 +1,34 @@
-import React from 'react';
-import useId from 'react-use-uuid';
 import { makeStyles } from '@mui/styles';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Card, Typography, CardMedia, CardContent } from '@mui/material';
+import { recipeCardStyling } from './style';
+import Details from '../details/Details';
+import { useNavigate } from 'react-router-dom';
 
-const useStyles = makeStyles({
-  root: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '90%',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    margin: '20px',
-  },
-  card: {
-    margin: '10px',
-    transition: 'transform 0.3s',
-
-    '&:hover': {
-      transform: 'scale(1.05)',
-      cursor: 'pointer',
-      transition: 'transform 0.4s',
-    },
-  },
-});
+const useStyles = makeStyles(recipeCardStyling);
 
 const RecipeCard = ({ dataFood }) => {
-  const id = useId();
   const classes = useStyles();
+  let navigate = useNavigate();
+  //card click handler func
+  const clickHandler = (id) => {
+    const asArray = Object.values(dataFood);
+    asArray.filter(
+      (item, index) =>
+        id == index &&
+        console.log(item.recipe.label) && <Details item={item.recipe.label} />
+    );
+  };
   return (
     <div className={classes.root}>
-      {dataFood.map((eachFood, uniqueid = id) => {
+      {dataFood.map((eachFood, index) => {
         return (
-          <Card sx={{ maxWidth: 300 }} key={uniqueid} className={classes.card}>
+          <Card
+            sx={{ maxWidth: 350 }}
+            key={index}
+            id={index}
+            className={classes.card}
+            onClick={(e) => clickHandler(e.currentTarget.id)}
+          >
             <CardMedia
               component="img"
               height="200"
@@ -47,8 +39,11 @@ const RecipeCard = ({ dataFood }) => {
               <Typography gutterBottom variant="h5" component="div">
                 {eachFood.recipe.label}
               </Typography>
+              <hr />
+              Calories: {eachFood.recipe.calories.toFixed(2)} j
+              <pre />
               <Typography variant="body2" color="text.secondary">
-                You can click the button to see the details about each food!
+                You can click the card to see details for each food!
               </Typography>
             </CardContent>
           </Card>

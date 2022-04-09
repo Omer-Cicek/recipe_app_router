@@ -30,7 +30,7 @@ const Home = () => {
     setDataFood(res?.data?.hits);
   };
 
-  useEffect(() => fetchData, []);
+  // useEffect(() => fetchData, []);
 
   return (
     <main className={classes.root}>
