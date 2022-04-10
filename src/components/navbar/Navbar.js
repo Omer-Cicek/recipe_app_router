@@ -31,7 +31,11 @@ const Navbar = () => {
           >
             GITHUB
           </a>
-          <Link to={'/'} className={classes.linkColor}>
+          <Link
+            to={'/'}
+            className={classes.linkColor}
+            onClick={() => sessionStorage.clear()}
+          >
             LOGOUT
           </Link>
         </Toolbar>

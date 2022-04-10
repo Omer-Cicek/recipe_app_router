@@ -29,6 +29,7 @@ const Login = () => {
     } else if (password.length <= 0) {
       toast.error('Invalid password!');
     } else if (username.length > 0 && password.length > 0) {
+      sessionStorage.setItem('user', JSON.stringify(username));
       navigate('/home');
       toast.success('Successfully entered the website!');
     }
