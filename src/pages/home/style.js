@@ -16,6 +16,7 @@ const homeStyling = {
     border: '2px #E0F1DD solid',
     borderRadius: '10px',
     padding: '30px',
+    gap: '10px',
   },
 
   input: {
@@ -34,6 +35,9 @@ const homeStyling = {
     '&.MuiTextField-root': {
       color: '#E0F1DD',
     },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#E0F1DD',
+    },
   },
   button: {
     width: '150px',
@@ -48,16 +52,55 @@ const homeStyling = {
     },
   },
   dropdown: {
-    '&.MuiFormLabel-root': {
+    width: '200px',
+
+    '& input': {
+      color: 'purple',
+    },
+
+    '& label': {
       color: 'white',
     },
+
+    '& label.Mui-focused': {
+      color: '#E0F1DD',
+    },
+
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#E0F1DD',
+    },
+
+    '& .MuiOutlinedInput-root': {
+      color: 'white',
+      '& fieldset': {
+        borderColor: 'white',
+      },
+
+      '&:hover fieldset': {
+        borderColor: '#E0F1DD',
+      },
+
+      '&.Mui-focused fieldset': {
+        borderColor: '#E0F1DD',
+      },
+    },
+
+    '& div.MuiOutlinedInput-root div.MuiSelect-select': {
+      color: 'white',
+    },
+  },
+  mealCard: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
 export const recipeCardStyling = {
   root: {
     display: 'flex',
     flexDirection: 'row',
-    width: '90%',
     justifyContent: 'center',
     flexWrap: 'wrap',
     margin: '20px',

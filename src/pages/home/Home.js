@@ -1,4 +1,4 @@
-import React from 'react';
+//imports
 import { makeStyles } from '@mui/styles';
 import {
   Box,
@@ -21,21 +21,27 @@ const Home = () => {
   const [meal, setMeal] = useState('');
   const [dataFood, setDataFood] = useState([]);
 
+  //api keys and url
   const APP_KEY = '8e0de6073bcc7125b71b0c0d3fd7ce03';
   const APP_ID = '2061853d';
   const apiUrl = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`;
 
+  // fetch data function when click button
   const fetchData = async () => {
-    const res = await axios(apiUrl);
-    setDataFood(res?.data?.hits);
+    try {
+      const res = await axios(apiUrl);
+      const hits = await res.data.hits;
+      setDataFood(hits);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  // useEffect(() => fetchData, []);
 
   return (
     <main className={classes.root}>
       <h1>Food App</h1>
       <Box className={classes.userInput}>
+        {/* textfield */}
         <TextField
           id="standard-basic"
           label="Search"
@@ -43,19 +49,9 @@ const Home = () => {
           className={classes.input}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button
-          variant="contained"
-          className={classes.button}
-          onClick={fetchData}
-        >
-          Search
-        </Button>
-        <FormControl>
-          <InputLabel
-            variant="standard"
-            htmlFor="uncontrolled-native"
-            className={classes.dropdown}
-          >
+        {/* dropdown list */}
+        <FormControl className={classes.dropdown}>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native">
             Meal
           </InputLabel>
           <NativeSelect
@@ -73,9 +69,22 @@ const Home = () => {
             <option value={'teatime'}>Teatime</option>
           </NativeSelect>
         </FormControl>
+        {/* button */}
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={fetchData}
+        >
+          Search
+        </Button>
       </Box>
-
-      <RecipeCard dataFood={dataFood} />
+      {/* sending data to RecipeCard component */}
+      <Box className={classes.mealCard}>
+        {dataFood &&
+          dataFood.map((eachFood, index) => {
+            return <RecipeCard eachFood={eachFood} key={index} id={index} />;
+          })}
+      </Box>
     </main>
   );
 };

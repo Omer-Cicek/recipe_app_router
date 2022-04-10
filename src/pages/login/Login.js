@@ -1,21 +1,26 @@
-import { Box, Button } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import { makeStyles } from '@mui/styles';
+//import material ui
+import { Box, Button, TextField } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import KeyIcon from '@mui/icons-material/Key';
+// import css styles
+import { makeStyles } from '@mui/styles';
 import loginStyling from './style';
+//import hooks
 import { useState } from 'react';
+//import react router
 import { useNavigate } from 'react-router';
+//import toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const useStyles = makeStyles(loginStyling);
 
+//component
 const Login = () => {
   let navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //when onClick, show user homepage
+  //Click function that show homepage when validation true ( with toastify )
   const loginHandler = () => {
     if (username.length <= 0 && password.length <= 0) {
       toast.error('Invalid username and password!');
@@ -34,6 +39,7 @@ const Login = () => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
+      {/* username textField */}
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <ToastContainer />
         <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
@@ -46,6 +52,7 @@ const Login = () => {
           value={username}
         />
       </Box>
+      {/* password textField */}
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <KeyIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
         <TextField
@@ -58,17 +65,16 @@ const Login = () => {
           value={password}
         />
       </Box>
-      {
-        <Button
-          variant="contained"
-          className={classes.button}
-          onClick={() => {
-            loginHandler();
-          }}
-        >
-          Sign In
-        </Button>
-      }
+      {/* button triggers loginHandler Func */}
+      <Button
+        variant="contained"
+        className={classes.button}
+        onClick={() => {
+          loginHandler();
+        }}
+      >
+        Sign In
+      </Button>
     </Box>
   );
 };
