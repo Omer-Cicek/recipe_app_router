@@ -18,7 +18,7 @@ const useStyles = makeStyles(homeStyling);
 const Home = () => {
   const classes = useStyles();
   const [query, setQuery] = useState('');
-  const [meal, setMeal] = useState('');
+  const [meal, setMeal] = useState('brakfast');
   const [dataFood, setDataFood] = useState([]);
 
   //api keys and url
