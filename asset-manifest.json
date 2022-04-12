@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/recipe_app_router/static/css/main.ad0544de.css",
+    "main.js": "/recipe_app_router/static/js/main.44bc055f.js",
+    "static/media/coding.svg": "/recipe_app_router/static/media/coding.0ee2fc3a99672b144ac05c8cb4994d69.svg",
+    "index.html": "/recipe_app_router/index.html",
+    "main.ad0544de.css.map": "/recipe_app_router/static/css/main.ad0544de.css.map",
+    "main.44bc055f.js.map": "/recipe_app_router/static/js/main.44bc055f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad0544de.css",
+    "static/js/main.44bc055f.js"
+  ]
+}
