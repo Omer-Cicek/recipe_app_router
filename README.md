@@ -23,7 +23,7 @@ For login page, you can press any button to login unless input value is empty.
 Users should be able to:
 
 - Search about any food for any meal and gets 10 result about their search.
-- See the details page(nutrients and ingredients).
+- See the details page for each food(nutrients and ingredients).
 
 ## Got feedback for me?
 
