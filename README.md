@@ -3,9 +3,9 @@
 
 Thanks to visit my Github! In this project, i used React, Material UI(styled), React-router, Toastify, axios. For security issues, i used PrivateRouter. Here is the link for this project (https://omer-cicek.github.io/recipe_app_router/)
 
-**To do this project, i used React and CSS.**
+**To do this project, i used React, Material UI, React-router, Toastify, axios.**
 
-# React Tour Places
+# React Recipe App
 
 ![Design preview for the tour project section coding challenge](recipeAppRouter.gif)
 
